@@ -1,0 +1,2 @@
+# Ignore local SQLite DB
+data.db
