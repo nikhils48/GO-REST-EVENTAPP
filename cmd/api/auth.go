@@ -11,7 +11,7 @@ import (
 type registerRequest struct {
 	Email    string `json:"email" binding:"required,email"`
 	Password string `json:"password" binding:"required,min=8"`
-	Name     string `json:"name" binding:"requireds,min=3"`
+	Name     string `json:"name" binding:"required,min=3"`
 }
 
 func (app *application) registerUser(c *gin.Context) {
