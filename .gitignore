@@ -1,2 +1,3 @@
 # Ignore local SQLite DB
 data.db
+.env
