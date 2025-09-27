@@ -12,6 +12,10 @@ func (app *application) routes() http.Handler {
 
 	g := gin.Default()
 
+	g.GET("/", func(c *gin.Context) {
+		c.Redirect(302, "/swagger/")
+	})
+
 	v1 := g.Group("/api/v1")
 	{
 		v1.GET("/events", app.getAllEvents)
@@ -37,7 +41,7 @@ func (app *application) routes() http.Handler {
 			c.Redirect(302, "/swagger/index.html")
 			return
 		}
-		ginSwagger.WrapHandler(swaggerFiles.Handler, ginSwagger.URL("http://localhost:8081/swagger/doc.json"))(c)
+		ginSwagger.WrapHandler(swaggerFiles.Handler, ginSwagger.URL("/swagger/doc.json"))(c)
 	})
 
 	return g

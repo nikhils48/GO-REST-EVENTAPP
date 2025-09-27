@@ -38,8 +38,10 @@ func main() {
 
 	models := database.NewModels(db)
 
+	port := env.GetEnvInt("PORT", 8081)
+
 	app := &application{
-		port:      env.GetEnvInt("PORT", 8081),
+		port:      port,
 		jwtSecret: env.GetEnvString("JWT_SECRET", "secret"),
 		models:    models,
 	}
