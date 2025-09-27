@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - .:/app          # Mount your local code for live reload
+      - /app/bin        # Cache compiled binaries
+    ports:
+      - "8081:8081"     # Host 8081 -> container 8081 to avoid conflict
+    environment:
+      - GOPROXY=direct
+    command: air -c .air.toml

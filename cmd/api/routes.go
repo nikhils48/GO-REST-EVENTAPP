@@ -37,7 +37,7 @@ func (app *application) routes() http.Handler {
 			c.Redirect(302, "/swagger/index.html")
 			return
 		}
-		ginSwagger.WrapHandler(swaggerFiles.Handler, ginSwagger.URL("http://localhost:8080/swagger/doc.json"))(c)
+		ginSwagger.WrapHandler(swaggerFiles.Handler, ginSwagger.URL("http://localhost:8081/swagger/doc.json"))(c)
 	})
 
 	return g

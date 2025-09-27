@@ -39,7 +39,7 @@ func main() {
 	models := database.NewModels(db)
 
 	app := &application{
-		port:      env.GetEnvInt("PORT", 8080),
+		port:      env.GetEnvInt("PORT", 8081),
 		jwtSecret: env.GetEnvString("JWT_SECRET", "secret"),
 		models:    models,
 	}

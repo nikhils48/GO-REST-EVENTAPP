@@ -44,7 +44,10 @@ func main() {
 	case "up":
 		if err := m.Up(); err != nil && err != migrate.ErrNoChange {
 			log.Fatal(err)
+		} else {
+			log.Println("Migration successful!")
 		}
+
 	case "down":
 		if err := m.Down(); err != nil && err != migrate.ErrNoChange {
 			log.Fatal(err)
